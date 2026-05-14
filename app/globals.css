@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@layer base {
+  :root {
+    --background: 11 16 26;
+    --foreground: 255 255 255;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: rgb(var(--background));
+    color: rgb(var(--foreground));
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  /* Premium matte gold gradient */
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #D4AF37 0%, #F5D576 50%, #C5A028 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Premium matte button effects */
+  .glow-indigo:hover {
+    box-shadow: 0 0 50px rgba(99, 102, 241, 0.4), 0 0 100px rgba(99, 102, 241, 0.2);
+  }
+
+  .glassmorphism {
+    background: rgba(11, 15, 26, 0.85);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+  }
+
+  .card-glow:hover {
+    border-color: #D4AF37;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
+  }
+
+  /* Matte surface effect */
+  .matte-surface {
+    background: linear-gradient(145deg, rgba(17, 24, 39, 0.8) 0%, rgba(11, 16, 26, 0.9) 100%);
+    backdrop-filter: blur(20px);
+  }
+}
+
+/* Premium animated grid background */
+.animated-grid {
+  background-image: 
+    linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: grid-move 30s linear infinite;
+  position: relative;
+}
+
+.animated-grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(11, 16, 26, 0.8) 100%);
+  pointer-events: none;
+}
+
+@keyframes grid-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+/* Scroll indicator animation */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce 2s infinite;
+}
