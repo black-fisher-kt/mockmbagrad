@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Remove-Item -Path \"c:\\\\Users\\\\thekt\\\\Desktop\\\\mbagrad mock site\\\\app\\\\api\\\\analyze-test\\\\route-fixed.ts.bak\" -Force)",
+      "Bash(powershell -Command \"Remove-Item -Path 'c:\\\\Users\\\\thekt\\\\Desktop\\\\mbagrad mock site\\\\app\\\\api\\\\analyze-test\\\\route-fixed.ts.bak' -Force\")",
+      "Bash(powershell -Command \"Remove-Item -Path 'c:\\\\Users\\\\thekt\\\\Desktop\\\\mbagrad mock site\\\\components\\\\cat-ai-chat-interface.tsx.backup' -Force\")",
+      "Bash(powershell -Command \"Get-Content 'c:\\\\Users\\\\thekt\\\\Desktop\\\\mbagrad mock site\\\\package.json'\")",
+      "Bash(powershell -Command \"\\(Get-Content 'c:\\\\Users\\\\thekt\\\\Desktop\\\\mbagrad mock site\\\\package.json' -Raw\\) -replace '\\\\\"@next/swc-win32-x64-msvc\\\\\"', '\\\\\"@netlify/plugin-nextjs\\\\\": \\\\\"^4.41.3\\\\\",\\\\n    \\\\\"@next/swc-win32-x64-msvc\\\\\"' | Set-Content 'c:\\\\Users\\\\thekt\\\\Desktop\\\\mbagrad mock site\\\\package.json' -NoNewline\")",
+      "Bash(git remote *)",
+      "Bash(git add *)",
+      "Bash(git reset *)"
+    ]
+  }
+}
