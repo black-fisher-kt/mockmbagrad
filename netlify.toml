@@ -1,6 +1,10 @@
 [build]
-  command = "npm install --no-optional && npm run build"
+  command = "npm ci --ignore-scripts || npm install --legacy-peer-deps && npm run build"
   publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "18"
+  NPM_CONFIG_PLATFORM = "linux"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
