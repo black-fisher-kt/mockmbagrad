@@ -240,7 +240,7 @@ export default function MockTestPage() {
       }
       
       questions.forEach((q, index) => {
-        const section = ['qa', 'dilr', 'varc'][index % 3]
+        const section = ['qa', 'dilr', 'varc'][index % 3] as keyof typeof sectionPerformance
         sectionPerformance[section].total++
         if (answers[index] === q.correct) {
           sectionPerformance[section].correct++
@@ -504,7 +504,7 @@ export default function MockTestPage() {
     
     if (sectionPerformance) {
       questions.forEach((q, index) => {
-        const section = ['qa', 'dilr', 'varc'][index % 3]
+        const section = ['qa', 'dilr', 'varc'][index % 3] as keyof typeof sectionPerformance
         sectionPerformance[section].total++
         if (answers[index] === q.correct) {
           sectionPerformance[section].correct++
