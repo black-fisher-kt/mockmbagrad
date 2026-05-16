@@ -11,6 +11,8 @@ interface ChatMessage {
   answer: string
   modelUsed: string
   timestamp: string
+  title?: string
+  lastMessagePreview?: string
 }
 
 export default function CatAiChatInterface({
