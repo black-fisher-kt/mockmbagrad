@@ -29,6 +29,7 @@ export default function CatAiChatInterfacePremium({
 }) {
   // ... existing state variables ...
   const [toasts, setToasts] = useState<Toast[]>([]);
+  const [sessionId, setSessionId] = useState<string>('');
   
   // Toast notification system
   const addToast = (message: string, type: 'success' | 'error' | 'info' = 'info') => {
