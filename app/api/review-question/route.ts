@@ -1,8 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(request: NextRequest) {
+  let question = '', studentAnswer = '', correctAnswer = '', topic = ''
+
   try {
-    const { question, studentAnswer, correctAnswer, topic } = await request.json()
+    const body = await request.json()
+    question = body.question
+    studentAnswer = body.studentAnswer
+    correctAnswer = body.correctAnswer
+    topic = body.topic
 
     const apiKey = "sk-OywRLa0NAH6y6r6LtG4oxJZTULf1mFOqEJwWQ5J3eBk"
 
