@@ -58,16 +58,17 @@ const LoadingSkeleton: React.FC = () => {
 
 // Premium Response Actions Component
 interface ResponseActionsProps {
+  text: string;
   onCopy: (text: string) => void;
   onShare: () => void;
   onFavorite: () => void;
 }
 
-const ResponseActions: React.FC<ResponseActionsProps> = ({ onCopy, onShare, onFavorite }) => {
+const ResponseActions: React.FC<ResponseActionsProps> = ({ text, onCopy, onShare, onFavorite }) => {
   return (
     <div className="flex gap-2 mt-3">
-      <button 
-        onClick={onCopy} 
+      <button
+        onClick={() => onCopy(text)} 
         className="p-2 rounded-lg hover:bg-[rgba(255,255,255,0.1)] text-gray-400 hover:text-white transition-colors"
         title="Copy"
       >
