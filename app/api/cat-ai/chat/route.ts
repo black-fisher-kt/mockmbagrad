@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
-import { getActiveApi, rotateToNextApi, recordApiFailure, getApiStatus } from '@/lib/api-failover'
+import { getActiveApi, rotateToNextApi, recordApiFailure } from '@/lib/api-failover'
  
 interface ChatMessage {
   id: string
@@ -105,7 +105,7 @@ FORMAT YOUR RESPONSES USING MARKDOWN:
         if (!response.ok) {
           const errData = await response.text()
           console.error(`API Error: ${response.status} - ${errData}`)
-          recordApiFailure(currentApi.name)
+          recordApiFailure()
           rotateToNextApi()
           lastError = `API ${currentApi.name} failed with status ${response.status}`
           continue
@@ -144,7 +144,7 @@ FORMAT YOUR RESPONSES USING MARKDOWN:
  
       } catch (error) {
         console.error(`Attempt ${attempt + 1} failed:`, error)
-        recordApiFailure(getActiveApi().name)
+        recordApiFailure()
         rotateToNextApi()
         lastError = error instanceof Error ? error.message : 'Unknown error'
       }
