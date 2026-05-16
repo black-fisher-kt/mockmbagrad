@@ -2,7 +2,7 @@
 
 export const dynamic = 'force-dynamic'
 
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, Suspense } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { BookOpen, BarChart, Calculator, Trophy, Clock, ChevronRight, Lightbulb, SkipForward, CheckCircle, XCircle, MinusCircle, RefreshCw, ArrowLeft, Sparkles, PieChart, TrendingUp } from "lucide-react"
 import Navbar from "@/components/navbar"
@@ -42,7 +42,7 @@ const topics: Topic[] = [
 
 type TestState = "selection" | "active" | "result"
 
-export default function MockTestPage() {
+function MockTestContent() {
   const [testState, setTestState] = useState<TestState>("selection")
   const [selectedTopic, setSelectedTopic] = useState<Topic | null>(null)
   const [questions, setQuestions] = useState<Question[]>([])
@@ -834,6 +834,14 @@ export default function MockTestPage() {
       {testState !== "active" && <Footer />}
       {testState !== "active" && <AIChatButton />}
     </main>
+  )
+}
+
+export default function MockTestPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-background flex items-center justify-center"><div className="text-white">Loading...</div></div>}>
+      <MockTestContent />
+    </Suspense>
   )
 }
 
