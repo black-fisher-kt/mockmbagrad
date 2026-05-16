@@ -1,5 +1,7 @@
 ﻿"use client"
 
+export const dynamic = 'force-dynamic'
+
 import React, { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { BookOpen, BarChart, Calculator, Trophy, Clock, ChevronRight, Lightbulb, SkipForward, CheckCircle, XCircle, MinusCircle, RefreshCw, ArrowLeft, Sparkles, PieChart, TrendingUp } from "lucide-react"
