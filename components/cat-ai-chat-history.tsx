@@ -7,8 +7,8 @@ import { Button } from "./ui/button";
 
 interface ChatMessage {
     id: string;
-    title: string;
-    lastMessagePreview: string;
+    title?: string;
+    lastMessagePreview?: string;
     timestamp: string;
 }
 
